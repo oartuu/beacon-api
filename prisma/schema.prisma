@@ -1,0 +1,82 @@
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  moduleFormat    = "cjs"
+  copyEngine = true
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Professor {
+  id        String   @id @default(uuid())
+  name     String
+  registration_number    String   @unique
+  password     String
+
+  classes    Class[]
+  sessions  Session[]
+
+  createdAt DateTime @default(now())
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  professor    Professor @relation(fields: [professorId], references: [id])
+  professorId  String
+
+  refreshToken String   @unique
+  userAgent    String?
+  ip           String?
+
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+
+  @@index([professorId])
+}
+
+model Class {
+  id          String   @id @default(uuid())
+  name        String
+  professor   Professor @relation(fields: [professorId], references: [id])
+  professorId String
+  lists     List[]
+  createdAt   DateTime @default(now())
+}
+
+model List {
+  id         String   @id @default(uuid())
+  name       String
+  class      Class   @relation(fields: [classId], references: [id])
+  classId    String
+  isOpen     Boolean  @default(true)
+
+  //link/QR
+  shareToken String   @unique
+
+  //preparado pro futuro (não usar agora)
+  secret     String?
+  codeWindow Int      @default(60)
+
+  itens      ListItem[]
+  createdAt  DateTime @default(now())
+}
+
+model ListItem {
+  id         String   @id @default(uuid())
+  list      List   @relation(fields: [listId], references: [id])
+  listId    String
+
+  nome       String
+  registration_number  String
+
+  createdAt  DateTime @default(now())
+
+  //impede aluno duplicado na mesma lista
+  @@unique([listId, registration_number])
+
+  // ajuda em busca futura (relatórios)
+  @@index([registration_number])
+}

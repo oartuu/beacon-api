@@ -27,7 +27,7 @@ export type AggregateListItem = {
 export type ListItemMinAggregateOutputType = {
   id: string | null
   listId: string | null
-  nome: string | null
+  name: string | null
   registration_number: string | null
   createdAt: Date | null
 }
@@ -35,7 +35,7 @@ export type ListItemMinAggregateOutputType = {
 export type ListItemMaxAggregateOutputType = {
   id: string | null
   listId: string | null
-  nome: string | null
+  name: string | null
   registration_number: string | null
   createdAt: Date | null
 }
@@ -43,7 +43,7 @@ export type ListItemMaxAggregateOutputType = {
 export type ListItemCountAggregateOutputType = {
   id: number
   listId: number
-  nome: number
+  name: number
   registration_number: number
   createdAt: number
   _all: number
@@ -53,7 +53,7 @@ export type ListItemCountAggregateOutputType = {
 export type ListItemMinAggregateInputType = {
   id?: true
   listId?: true
-  nome?: true
+  name?: true
   registration_number?: true
   createdAt?: true
 }
@@ -61,7 +61,7 @@ export type ListItemMinAggregateInputType = {
 export type ListItemMaxAggregateInputType = {
   id?: true
   listId?: true
-  nome?: true
+  name?: true
   registration_number?: true
   createdAt?: true
 }
@@ -69,7 +69,7 @@ export type ListItemMaxAggregateInputType = {
 export type ListItemCountAggregateInputType = {
   id?: true
   listId?: true
-  nome?: true
+  name?: true
   registration_number?: true
   createdAt?: true
   _all?: true
@@ -150,7 +150,7 @@ export type ListItemGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 export type ListItemGroupByOutputType = {
   id: string
   listId: string
-  nome: string
+  name: string
   registration_number: string
   createdAt: Date
   _count: ListItemCountAggregateOutputType | null
@@ -179,7 +179,7 @@ export type ListItemWhereInput = {
   NOT?: Prisma.ListItemWhereInput | Prisma.ListItemWhereInput[]
   id?: Prisma.StringFilter<"ListItem"> | string
   listId?: Prisma.StringFilter<"ListItem"> | string
-  nome?: Prisma.StringFilter<"ListItem"> | string
+  name?: Prisma.StringFilter<"ListItem"> | string
   registration_number?: Prisma.StringFilter<"ListItem"> | string
   createdAt?: Prisma.DateTimeFilter<"ListItem"> | Date | string
   list?: Prisma.XOR<Prisma.ListScalarRelationFilter, Prisma.ListWhereInput>
@@ -188,7 +188,7 @@ export type ListItemWhereInput = {
 export type ListItemOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   listId?: Prisma.SortOrder
-  nome?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   list?: Prisma.ListOrderByWithRelationInput
@@ -201,7 +201,7 @@ export type ListItemWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ListItemWhereInput[]
   NOT?: Prisma.ListItemWhereInput | Prisma.ListItemWhereInput[]
   listId?: Prisma.StringFilter<"ListItem"> | string
-  nome?: Prisma.StringFilter<"ListItem"> | string
+  name?: Prisma.StringFilter<"ListItem"> | string
   registration_number?: Prisma.StringFilter<"ListItem"> | string
   createdAt?: Prisma.DateTimeFilter<"ListItem"> | Date | string
   list?: Prisma.XOR<Prisma.ListScalarRelationFilter, Prisma.ListWhereInput>
@@ -210,7 +210,7 @@ export type ListItemWhereUniqueInput = Prisma.AtLeast<{
 export type ListItemOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   listId?: Prisma.SortOrder
-  nome?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.ListItemCountOrderByAggregateInput
@@ -224,14 +224,14 @@ export type ListItemScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ListItemScalarWhereWithAggregatesInput | Prisma.ListItemScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"ListItem"> | string
   listId?: Prisma.StringWithAggregatesFilter<"ListItem"> | string
-  nome?: Prisma.StringWithAggregatesFilter<"ListItem"> | string
+  name?: Prisma.StringWithAggregatesFilter<"ListItem"> | string
   registration_number?: Prisma.StringWithAggregatesFilter<"ListItem"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ListItem"> | Date | string
 }
 
 export type ListItemCreateInput = {
   id?: string
-  nome: string
+  name: string
   registration_number: string
   createdAt?: Date | string
   list: Prisma.ListCreateNestedOneWithoutItensInput
@@ -240,14 +240,14 @@ export type ListItemCreateInput = {
 export type ListItemUncheckedCreateInput = {
   id?: string
   listId: string
-  nome: string
+  name: string
   registration_number: string
   createdAt?: Date | string
 }
 
 export type ListItemUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   list?: Prisma.ListUpdateOneRequiredWithoutItensNestedInput
@@ -256,7 +256,7 @@ export type ListItemUpdateInput = {
 export type ListItemUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   listId?: Prisma.StringFieldUpdateOperationsInput | string
-  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -264,14 +264,14 @@ export type ListItemUncheckedUpdateInput = {
 export type ListItemCreateManyInput = {
   id?: string
   listId: string
-  nome: string
+  name: string
   registration_number: string
   createdAt?: Date | string
 }
 
 export type ListItemUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -279,7 +279,7 @@ export type ListItemUpdateManyMutationInput = {
 export type ListItemUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   listId?: Prisma.StringFieldUpdateOperationsInput | string
-  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -302,7 +302,7 @@ export type ListItemListIdRegistration_numberCompoundUniqueInput = {
 export type ListItemCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   listId?: Prisma.SortOrder
-  nome?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -310,7 +310,7 @@ export type ListItemCountOrderByAggregateInput = {
 export type ListItemMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   listId?: Prisma.SortOrder
-  nome?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -318,7 +318,7 @@ export type ListItemMaxOrderByAggregateInput = {
 export type ListItemMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   listId?: Prisma.SortOrder
-  nome?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -367,14 +367,14 @@ export type ListItemUncheckedUpdateManyWithoutListNestedInput = {
 
 export type ListItemCreateWithoutListInput = {
   id?: string
-  nome: string
+  name: string
   registration_number: string
   createdAt?: Date | string
 }
 
 export type ListItemUncheckedCreateWithoutListInput = {
   id?: string
-  nome: string
+  name: string
   registration_number: string
   createdAt?: Date | string
 }
@@ -411,35 +411,35 @@ export type ListItemScalarWhereInput = {
   NOT?: Prisma.ListItemScalarWhereInput | Prisma.ListItemScalarWhereInput[]
   id?: Prisma.StringFilter<"ListItem"> | string
   listId?: Prisma.StringFilter<"ListItem"> | string
-  nome?: Prisma.StringFilter<"ListItem"> | string
+  name?: Prisma.StringFilter<"ListItem"> | string
   registration_number?: Prisma.StringFilter<"ListItem"> | string
   createdAt?: Prisma.DateTimeFilter<"ListItem"> | Date | string
 }
 
 export type ListItemCreateManyListInput = {
   id?: string
-  nome: string
+  name: string
   registration_number: string
   createdAt?: Date | string
 }
 
 export type ListItemUpdateWithoutListInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ListItemUncheckedUpdateWithoutListInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ListItemUncheckedUpdateManyWithoutListInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -449,7 +449,7 @@ export type ListItemUncheckedUpdateManyWithoutListInput = {
 export type ListItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   listId?: boolean
-  nome?: boolean
+  name?: boolean
   registration_number?: boolean
   createdAt?: boolean
   list?: boolean | Prisma.ListDefaultArgs<ExtArgs>
@@ -458,7 +458,7 @@ export type ListItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 export type ListItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   listId?: boolean
-  nome?: boolean
+  name?: boolean
   registration_number?: boolean
   createdAt?: boolean
   list?: boolean | Prisma.ListDefaultArgs<ExtArgs>
@@ -467,7 +467,7 @@ export type ListItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
 export type ListItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   listId?: boolean
-  nome?: boolean
+  name?: boolean
   registration_number?: boolean
   createdAt?: boolean
   list?: boolean | Prisma.ListDefaultArgs<ExtArgs>
@@ -476,12 +476,12 @@ export type ListItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
 export type ListItemSelectScalar = {
   id?: boolean
   listId?: boolean
-  nome?: boolean
+  name?: boolean
   registration_number?: boolean
   createdAt?: boolean
 }
 
-export type ListItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "listId" | "nome" | "registration_number" | "createdAt", ExtArgs["result"]["listItem"]>
+export type ListItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "listId" | "name" | "registration_number" | "createdAt", ExtArgs["result"]["listItem"]>
 export type ListItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   list?: boolean | Prisma.ListDefaultArgs<ExtArgs>
 }
@@ -500,7 +500,7 @@ export type $ListItemPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     listId: string
-    nome: string
+    name: string
     registration_number: string
     createdAt: Date
   }, ExtArgs["result"]["listItem"]>
@@ -929,7 +929,7 @@ export interface Prisma__ListItemClient<T, Null = never, ExtArgs extends runtime
 export interface ListItemFieldRefs {
   readonly id: Prisma.FieldRef<"ListItem", 'String'>
   readonly listId: Prisma.FieldRef<"ListItem", 'String'>
-  readonly nome: Prisma.FieldRef<"ListItem", 'String'>
+  readonly name: Prisma.FieldRef<"ListItem", 'String'>
   readonly registration_number: Prisma.FieldRef<"ListItem", 'String'>
   readonly createdAt: Prisma.FieldRef<"ListItem", 'DateTime'>
 }

@@ -1,11 +1,10 @@
 import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
-import { UseGuards } from '@nestjs/common'
+import { UseGuards } from '@nestjs/common';
 
-import { AuthGuard } from '@nestjs/passport'
+import { AuthGuard } from '@nestjs/passport';
 import { CreateClassDto } from './dto/createClass.dto';
 import type { RequestWithUser } from './types/request-with-user';
 import { ClassService } from './class.service';
-
 
 @Controller('class')
 export class ClassController {
@@ -27,6 +26,6 @@ export class ClassController {
     @Res({ passthrough: true }) res: Response,
     @Req() req: RequestWithUser,
   ) {
-    return this.classService.list_classes( req.user.id);
+    return this.classService.list_classes(req.user.id);
   }
 }

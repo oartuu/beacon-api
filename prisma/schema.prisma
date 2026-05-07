@@ -69,7 +69,7 @@ model ListItem {
   list      List   @relation(fields: [listId], references: [id])
   listId    String
 
-  nome       String
+  name       String
   registration_number  String
 
   createdAt  DateTime @default(now())

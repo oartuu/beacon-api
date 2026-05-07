@@ -868,7 +868,7 @@ export type ListScalarFieldEnum = (typeof ListScalarFieldEnum)[keyof typeof List
 export const ListItemScalarFieldEnum = {
   id: 'id',
   listId: 'listId',
-  nome: 'nome',
+  name: 'name',
   registration_number: 'registration_number',
   createdAt: 'createdAt'
 } as const

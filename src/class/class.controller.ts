@@ -29,7 +29,7 @@ export class ClassController {
   ) {
     return this.classService.list_classes(req.user.id);
   }
-  @Get("/lists")
+  @Post("/lists")
   async getLists(
     @Body() dto:GetListsDto,
     @Res({passthrough: true}) res:Response

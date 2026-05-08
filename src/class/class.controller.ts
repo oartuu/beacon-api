@@ -5,6 +5,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { CreateClassDto } from './dto/createClass.dto';
 import type { RequestWithUser } from './types/request-with-user';
 import { ClassService } from './class.service';
+import { GetListsDto } from './dto/getLists.dto';
 
 @Controller('class')
 export class ClassController {
@@ -27,5 +28,12 @@ export class ClassController {
     @Req() req: RequestWithUser,
   ) {
     return this.classService.list_classes(req.user.id);
+  }
+  @Get("/lists")
+  async getLists(
+    @Body() dto:GetListsDto,
+    @Res({passthrough: true}) res:Response
+  ){
+    return this.classService.get_class_lists(dto)
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateClassDto } from './dto/createClass.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { GetListsDto } from './dto/getLists.dto';
 @Injectable()
 export class ClassService {
   constructor(private prisma: PrismaService) {}
@@ -18,6 +19,10 @@ export class ClassService {
 
   async list_classes(professorId:string){
     return this.prisma.class.findMany({where:{professorId:professorId}})
+  }
+
+  async get_class_lists(dto:GetListsDto){
+    return this.prisma.list.findMany({where:{classId:dto.ClassId}})
   }
 
 }

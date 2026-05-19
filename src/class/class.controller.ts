@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Req, Res } from '@nestjs/common';
 import { UseGuards } from '@nestjs/common';
 
 import { AuthGuard } from '@nestjs/passport';
@@ -54,4 +54,12 @@ export class ClassController {
   ) {
     return this.classService.get_class_lists(dto);
   }
+
+  @Get(':id')
+  async getClass(
+    @Param('id') id: string,
+  ){
+    return this.classService.get_class(id)
+  }
+
 }

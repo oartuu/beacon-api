@@ -25,4 +25,9 @@ export class ClassService {
     return this.prisma.list.findMany({where:{classId:dto.classId}})
   }
 
+
+  async get_class(classId:string){
+    return this.prisma.class.findUnique({where:{id:classId}})
+  
+  }
 }

@@ -8,7 +8,7 @@ import { ClassService } from './class.service';
 import { GetListsDto } from './dto/get-lists.dto';
 import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
 import { CreateClassResponse } from './dto/create-class-response.dto';
-import { ListResponse } from '@/list/dto/list-response.dto';
+import { ListResponse } from '../list/dto/list-response.dto';
 
 @Controller('class')
 export class ClassController {

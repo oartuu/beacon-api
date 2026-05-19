@@ -1,5 +1,5 @@
 import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from '@/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { randomUUID } from 'crypto'
 import { CreateListDto } from './dto/create-list.dto';
 import { CreatePresenceDto } from './dto/create-presence.dto';

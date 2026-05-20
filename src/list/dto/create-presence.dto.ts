@@ -8,4 +8,6 @@ export class CreatePresenceDto{
 
     @ApiProperty()
     registration_number!:string
+
+    validationToken?:string
 }

@@ -29,6 +29,8 @@ export type ListItemMinAggregateOutputType = {
   listId: string | null
   name: string | null
   registration_number: string | null
+  validationToken: string | null
+  origin: $Enums.PresenceOrigin | null
   createdAt: Date | null
 }
 
@@ -37,6 +39,8 @@ export type ListItemMaxAggregateOutputType = {
   listId: string | null
   name: string | null
   registration_number: string | null
+  validationToken: string | null
+  origin: $Enums.PresenceOrigin | null
   createdAt: Date | null
 }
 
@@ -45,6 +49,8 @@ export type ListItemCountAggregateOutputType = {
   listId: number
   name: number
   registration_number: number
+  validationToken: number
+  origin: number
   createdAt: number
   _all: number
 }
@@ -55,6 +61,8 @@ export type ListItemMinAggregateInputType = {
   listId?: true
   name?: true
   registration_number?: true
+  validationToken?: true
+  origin?: true
   createdAt?: true
 }
 
@@ -63,6 +71,8 @@ export type ListItemMaxAggregateInputType = {
   listId?: true
   name?: true
   registration_number?: true
+  validationToken?: true
+  origin?: true
   createdAt?: true
 }
 
@@ -71,6 +81,8 @@ export type ListItemCountAggregateInputType = {
   listId?: true
   name?: true
   registration_number?: true
+  validationToken?: true
+  origin?: true
   createdAt?: true
   _all?: true
 }
@@ -152,6 +164,8 @@ export type ListItemGroupByOutputType = {
   listId: string
   name: string
   registration_number: string
+  validationToken: string | null
+  origin: $Enums.PresenceOrigin
   createdAt: Date
   _count: ListItemCountAggregateOutputType | null
   _min: ListItemMinAggregateOutputType | null
@@ -181,6 +195,8 @@ export type ListItemWhereInput = {
   listId?: Prisma.StringFilter<"ListItem"> | string
   name?: Prisma.StringFilter<"ListItem"> | string
   registration_number?: Prisma.StringFilter<"ListItem"> | string
+  validationToken?: Prisma.StringNullableFilter<"ListItem"> | string | null
+  origin?: Prisma.EnumPresenceOriginFilter<"ListItem"> | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFilter<"ListItem"> | Date | string
   list?: Prisma.XOR<Prisma.ListScalarRelationFilter, Prisma.ListWhereInput>
 }
@@ -190,6 +206,8 @@ export type ListItemOrderByWithRelationInput = {
   listId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
+  validationToken?: Prisma.SortOrderInput | Prisma.SortOrder
+  origin?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   list?: Prisma.ListOrderByWithRelationInput
 }
@@ -203,6 +221,8 @@ export type ListItemWhereUniqueInput = Prisma.AtLeast<{
   listId?: Prisma.StringFilter<"ListItem"> | string
   name?: Prisma.StringFilter<"ListItem"> | string
   registration_number?: Prisma.StringFilter<"ListItem"> | string
+  validationToken?: Prisma.StringNullableFilter<"ListItem"> | string | null
+  origin?: Prisma.EnumPresenceOriginFilter<"ListItem"> | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFilter<"ListItem"> | Date | string
   list?: Prisma.XOR<Prisma.ListScalarRelationFilter, Prisma.ListWhereInput>
 }, "id" | "listId_registration_number">
@@ -212,6 +232,8 @@ export type ListItemOrderByWithAggregationInput = {
   listId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
+  validationToken?: Prisma.SortOrderInput | Prisma.SortOrder
+  origin?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.ListItemCountOrderByAggregateInput
   _max?: Prisma.ListItemMaxOrderByAggregateInput
@@ -226,6 +248,8 @@ export type ListItemScalarWhereWithAggregatesInput = {
   listId?: Prisma.StringWithAggregatesFilter<"ListItem"> | string
   name?: Prisma.StringWithAggregatesFilter<"ListItem"> | string
   registration_number?: Prisma.StringWithAggregatesFilter<"ListItem"> | string
+  validationToken?: Prisma.StringNullableWithAggregatesFilter<"ListItem"> | string | null
+  origin?: Prisma.EnumPresenceOriginWithAggregatesFilter<"ListItem"> | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ListItem"> | Date | string
 }
 
@@ -233,6 +257,8 @@ export type ListItemCreateInput = {
   id?: string
   name: string
   registration_number: string
+  validationToken?: string | null
+  origin?: $Enums.PresenceOrigin
   createdAt?: Date | string
   list: Prisma.ListCreateNestedOneWithoutItensInput
 }
@@ -242,6 +268,8 @@ export type ListItemUncheckedCreateInput = {
   listId: string
   name: string
   registration_number: string
+  validationToken?: string | null
+  origin?: $Enums.PresenceOrigin
   createdAt?: Date | string
 }
 
@@ -249,6 +277,8 @@ export type ListItemUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
+  validationToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origin?: Prisma.EnumPresenceOriginFieldUpdateOperationsInput | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   list?: Prisma.ListUpdateOneRequiredWithoutItensNestedInput
 }
@@ -258,6 +288,8 @@ export type ListItemUncheckedUpdateInput = {
   listId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
+  validationToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origin?: Prisma.EnumPresenceOriginFieldUpdateOperationsInput | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -266,6 +298,8 @@ export type ListItemCreateManyInput = {
   listId: string
   name: string
   registration_number: string
+  validationToken?: string | null
+  origin?: $Enums.PresenceOrigin
   createdAt?: Date | string
 }
 
@@ -273,6 +307,8 @@ export type ListItemUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
+  validationToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origin?: Prisma.EnumPresenceOriginFieldUpdateOperationsInput | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -281,6 +317,8 @@ export type ListItemUncheckedUpdateManyInput = {
   listId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
+  validationToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origin?: Prisma.EnumPresenceOriginFieldUpdateOperationsInput | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -304,6 +342,8 @@ export type ListItemCountOrderByAggregateInput = {
   listId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
+  validationToken?: Prisma.SortOrder
+  origin?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -312,6 +352,8 @@ export type ListItemMaxOrderByAggregateInput = {
   listId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
+  validationToken?: Prisma.SortOrder
+  origin?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -320,6 +362,8 @@ export type ListItemMinOrderByAggregateInput = {
   listId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   registration_number?: Prisma.SortOrder
+  validationToken?: Prisma.SortOrder
+  origin?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -365,10 +409,16 @@ export type ListItemUncheckedUpdateManyWithoutListNestedInput = {
   deleteMany?: Prisma.ListItemScalarWhereInput | Prisma.ListItemScalarWhereInput[]
 }
 
+export type EnumPresenceOriginFieldUpdateOperationsInput = {
+  set?: $Enums.PresenceOrigin
+}
+
 export type ListItemCreateWithoutListInput = {
   id?: string
   name: string
   registration_number: string
+  validationToken?: string | null
+  origin?: $Enums.PresenceOrigin
   createdAt?: Date | string
 }
 
@@ -376,6 +426,8 @@ export type ListItemUncheckedCreateWithoutListInput = {
   id?: string
   name: string
   registration_number: string
+  validationToken?: string | null
+  origin?: $Enums.PresenceOrigin
   createdAt?: Date | string
 }
 
@@ -413,6 +465,8 @@ export type ListItemScalarWhereInput = {
   listId?: Prisma.StringFilter<"ListItem"> | string
   name?: Prisma.StringFilter<"ListItem"> | string
   registration_number?: Prisma.StringFilter<"ListItem"> | string
+  validationToken?: Prisma.StringNullableFilter<"ListItem"> | string | null
+  origin?: Prisma.EnumPresenceOriginFilter<"ListItem"> | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFilter<"ListItem"> | Date | string
 }
 
@@ -420,6 +474,8 @@ export type ListItemCreateManyListInput = {
   id?: string
   name: string
   registration_number: string
+  validationToken?: string | null
+  origin?: $Enums.PresenceOrigin
   createdAt?: Date | string
 }
 
@@ -427,6 +483,8 @@ export type ListItemUpdateWithoutListInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
+  validationToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origin?: Prisma.EnumPresenceOriginFieldUpdateOperationsInput | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -434,6 +492,8 @@ export type ListItemUncheckedUpdateWithoutListInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
+  validationToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origin?: Prisma.EnumPresenceOriginFieldUpdateOperationsInput | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -441,6 +501,8 @@ export type ListItemUncheckedUpdateManyWithoutListInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   registration_number?: Prisma.StringFieldUpdateOperationsInput | string
+  validationToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origin?: Prisma.EnumPresenceOriginFieldUpdateOperationsInput | $Enums.PresenceOrigin
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -451,6 +513,8 @@ export type ListItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   listId?: boolean
   name?: boolean
   registration_number?: boolean
+  validationToken?: boolean
+  origin?: boolean
   createdAt?: boolean
   list?: boolean | Prisma.ListDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["listItem"]>
@@ -460,6 +524,8 @@ export type ListItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   listId?: boolean
   name?: boolean
   registration_number?: boolean
+  validationToken?: boolean
+  origin?: boolean
   createdAt?: boolean
   list?: boolean | Prisma.ListDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["listItem"]>
@@ -469,6 +535,8 @@ export type ListItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   listId?: boolean
   name?: boolean
   registration_number?: boolean
+  validationToken?: boolean
+  origin?: boolean
   createdAt?: boolean
   list?: boolean | Prisma.ListDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["listItem"]>
@@ -478,10 +546,12 @@ export type ListItemSelectScalar = {
   listId?: boolean
   name?: boolean
   registration_number?: boolean
+  validationToken?: boolean
+  origin?: boolean
   createdAt?: boolean
 }
 
-export type ListItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "listId" | "name" | "registration_number" | "createdAt", ExtArgs["result"]["listItem"]>
+export type ListItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "listId" | "name" | "registration_number" | "validationToken" | "origin" | "createdAt", ExtArgs["result"]["listItem"]>
 export type ListItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   list?: boolean | Prisma.ListDefaultArgs<ExtArgs>
 }
@@ -502,6 +572,8 @@ export type $ListItemPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     listId: string
     name: string
     registration_number: string
+    validationToken: string | null
+    origin: $Enums.PresenceOrigin
     createdAt: Date
   }, ExtArgs["result"]["listItem"]>
   composites: {}
@@ -931,6 +1003,8 @@ export interface ListItemFieldRefs {
   readonly listId: Prisma.FieldRef<"ListItem", 'String'>
   readonly name: Prisma.FieldRef<"ListItem", 'String'>
   readonly registration_number: Prisma.FieldRef<"ListItem", 'String'>
+  readonly validationToken: Prisma.FieldRef<"ListItem", 'String'>
+  readonly origin: Prisma.FieldRef<"ListItem", 'PresenceOrigin'>
   readonly createdAt: Prisma.FieldRef<"ListItem", 'DateTime'>
 }
     

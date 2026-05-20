@@ -1,8 +1,14 @@
-import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { randomUUID } from 'crypto'
+import { randomUUID } from 'crypto';
 import { CreateListDto } from './dto/create-list.dto';
 import { CreatePresenceDto } from './dto/create-presence.dto';
+import crypto from 'crypto';
 
 @Injectable()
 export class ListService {
@@ -29,6 +35,12 @@ export class ListService {
     });
   }
 
+  async create_validation_token() {
+    const validationToken = crypto.randomBytes(16).toString('hex');
+
+    return validationToken;
+  }
+
   async create_presence(token: string, dto: CreatePresenceDto) {
     const lista = await this.prisma.list.findUnique({
       where: {
@@ -43,25 +55,35 @@ export class ListService {
     if (!lista.isOpen) {
       throw new BadRequestException('Lista fechada');
     }
+    const validPresence = await this.prisma.listItem.findFirst({
+      where:{
+        validationToken:dto.validationToken,
+      }
+    })
+
+    const origin = validPresence ? 'SHARED_LINK' : 'QR_CODE';
 
     return this.prisma.listItem.create({
       data: {
         name: dto.name,
         registration_number: dto.registration_number,
-
+        validationToken: dto.validationToken,
+        origin: origin,
         listId: lista.id,
       },
     });
   }
 
-  async get_list_by_id(token:string){
-    const validList = await this.prisma.list.findUnique({where:{shareToken: token}, include:{itens: true}})
-     
-    if (!validList){
-        throw new NotFoundException('lista não encontrada aqui')
+  async get_list_by_id(token: string) {
+    const validList = await this.prisma.list.findUnique({
+      where: { shareToken: token },
+      include: { itens: true },
+    });
+
+    if (!validList) {
+      throw new NotFoundException('lista não encontrada aqui');
     }
 
-    return validList
+    return validList;
   }
-
 }

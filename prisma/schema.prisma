@@ -64,6 +64,10 @@ model List {
   createdAt  DateTime @default(now())
 }
 
+enum PresenceOrigin {
+  QR_CODE
+  SHARED_LINK
+}
 model ListItem {
   id         String   @id @default(uuid())
   list      List   @relation(fields: [listId], references: [id])
@@ -71,7 +75,9 @@ model ListItem {
 
   name       String
   registration_number  String
+  validationToken       String?
 
+  origin                PresenceOrigin @default(QR_CODE)
   createdAt  DateTime @default(now())
 
   //impede aluno duplicado na mesma lista
@@ -79,4 +85,7 @@ model ListItem {
 
   // ajuda em busca futura (relatórios)
   @@index([registration_number])
+
+  // melhora validação de compartilhamento
+  @@index([validationToken])
 }

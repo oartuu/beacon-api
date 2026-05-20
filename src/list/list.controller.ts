@@ -35,7 +35,7 @@ export class ListController {
     const validationToken = await this.listService.create_validation_token()
 
     return {
-      url: `https://beacon4u.vercel.app/list/send/${token}/${validationToken}`,
+      url: `http://localhost:3001/list/send/${token}/${validationToken}`,
     };
     
   }
@@ -43,6 +43,7 @@ export class ListController {
   @ApiOkResponse({
     type:CreatePresenceResponse
   })
+  
   @Post(':token')
   createPresence(@Param('token') token: string, @Body() dto: CreatePresenceDto) {
     return this.listService.create_presence(token, dto);

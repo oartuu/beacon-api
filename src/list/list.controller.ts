@@ -35,7 +35,7 @@ export class ListController {
     const validationToken = await this.listService.create_validation_token()
 
     return {
-      url: `http://localhost:3001/list/send/${token}/${validationToken}`,
+      url: `https://beacon4u.vercel.app/list/send/${token}/${validationToken}`,
     };
     
   }

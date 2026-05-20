@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Redirect, Req, Res } from '@nestjs/common';
 import { UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import type { RequestWithUser } from '../class/types/request-with-user';
@@ -25,6 +25,19 @@ export class ListController {
     @Req() req: RequestWithUser,
   ) {
     return this.listService.create_list(dto, req.user.id);
+  }
+
+  @Get('validation/:token')
+  @Redirect()
+  async createValidationToken(
+    @Param('token') token: string,
+  ){
+    const validationToken = await this.listService.create_validation_token()
+
+    return {
+      url: `https://beacon4u.vercel.app/list/send/${token}/${validationToken}`,
+    };
+    
   }
 
   @ApiOkResponse({

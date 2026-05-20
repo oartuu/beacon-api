@@ -3,6 +3,8 @@ import { PrismaService } from '../prisma/prisma.service';
 import { randomUUID } from 'crypto'
 import { CreateListDto } from './dto/create-list.dto';
 import { CreatePresenceDto } from './dto/create-presence.dto';
+import crypto from 'crypto';
+
 
 @Injectable()
 export class ListService {
@@ -27,6 +29,13 @@ export class ListService {
         shareToken: randomUUID(),
       },
     });
+  }
+
+  async create_validation_token(){
+
+    const validationToken = crypto.randomBytes(16).toString('hex');
+    
+    return validationToken
   }
 
   async create_presence(token: string, dto: CreatePresenceDto) {

@@ -127,6 +127,8 @@ export const ListItemScalarFieldEnum = {
   listId: 'listId',
   name: 'name',
   registration_number: 'registration_number',
+  validationToken: 'validationToken',
+  origin: 'origin',
   createdAt: 'createdAt'
 } as const
 

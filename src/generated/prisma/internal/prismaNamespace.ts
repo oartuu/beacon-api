@@ -870,6 +870,8 @@ export const ListItemScalarFieldEnum = {
   listId: 'listId',
   name: 'name',
   registration_number: 'registration_number',
+  validationToken: 'validationToken',
+  origin: 'origin',
   createdAt: 'createdAt'
 } as const
 
@@ -952,6 +954,20 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PresenceOrigin'
+ */
+export type EnumPresenceOriginFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PresenceOrigin'>
+    
+
+
+/**
+ * Reference to a field of type 'PresenceOrigin[]'
+ */
+export type ListEnumPresenceOriginFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PresenceOrigin[]'>
     
 
 

@@ -150,6 +150,23 @@ export type IntWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntFilter<$PrismaModel>
 }
 
+export type EnumPresenceOriginFilter<$PrismaModel = never> = {
+  equals?: $Enums.PresenceOrigin | Prisma.EnumPresenceOriginFieldRefInput<$PrismaModel>
+  in?: $Enums.PresenceOrigin[] | Prisma.ListEnumPresenceOriginFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PresenceOrigin[] | Prisma.ListEnumPresenceOriginFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPresenceOriginFilter<$PrismaModel> | $Enums.PresenceOrigin
+}
+
+export type EnumPresenceOriginWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PresenceOrigin | Prisma.EnumPresenceOriginFieldRefInput<$PrismaModel>
+  in?: $Enums.PresenceOrigin[] | Prisma.ListEnumPresenceOriginFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PresenceOrigin[] | Prisma.ListEnumPresenceOriginFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPresenceOriginWithAggregatesFilter<$PrismaModel> | $Enums.PresenceOrigin
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPresenceOriginFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPresenceOriginFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -297,6 +314,23 @@ export type NestedFloatFilter<$PrismaModel = never> = {
   gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
+}
+
+export type NestedEnumPresenceOriginFilter<$PrismaModel = never> = {
+  equals?: $Enums.PresenceOrigin | Prisma.EnumPresenceOriginFieldRefInput<$PrismaModel>
+  in?: $Enums.PresenceOrigin[] | Prisma.ListEnumPresenceOriginFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PresenceOrigin[] | Prisma.ListEnumPresenceOriginFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPresenceOriginFilter<$PrismaModel> | $Enums.PresenceOrigin
+}
+
+export type NestedEnumPresenceOriginWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PresenceOrigin | Prisma.EnumPresenceOriginFieldRefInput<$PrismaModel>
+  in?: $Enums.PresenceOrigin[] | Prisma.ListEnumPresenceOriginFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PresenceOrigin[] | Prisma.ListEnumPresenceOriginFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPresenceOriginWithAggregatesFilter<$PrismaModel> | $Enums.PresenceOrigin
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPresenceOriginFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPresenceOriginFilter<$PrismaModel>
 }
 
 
